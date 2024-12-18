@@ -1,0 +1,23 @@
+name: Automake Build
+
+on:
+  push:
+    branches:
+      - branchAutomake
+  pull_request:
+    branches:
+      - branchAutomake
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install dependencies
+      run: sudo apt-get install automake autoconf build-essential
+    - name: Generate configure script
+      run: autogen.sh
+    - name: Build tarball
+      run: ./configure && make dist
