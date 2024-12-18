@@ -15,9 +15,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
     - name: Install dependencies
-      run: sudo apt-get install automake autoconf build-essential
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y automake autoconf build-essential pkg-config
+
     - name: Generate configure script
-      run: autogen.sh
+      run: |
+        chmod +x autogen.sh  # Ensure the script is executable
+        ./autogen.sh  # Run autogen.sh to generate configuration files
+
     - name: Build tarball
-      run: ./configure && make dist
+      run: |
+        ./configure && make dist
