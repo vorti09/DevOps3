@@ -1,3 +1,4 @@
+#include <iostream> 
 #include "FuncA.h"
 #include <cmath>
 

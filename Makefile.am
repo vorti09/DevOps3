@@ -1,4 +1,4 @@
-AUTOMAKE_OPTIONS = foreign
+AUTOMAKE_OPTIONS = foreign subdir-objects
 bin_PROGRAMS = mainprogram
 mainprogram_SOURCES = main.cpp FuncA.cpp FuncA.h
 
