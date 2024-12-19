@@ -70,10 +70,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/main
-pkgincludedir = $(includedir)/main
-pkglibdir = $(libdir)/main
-pkglibexecdir = $(libexecdir)/main
+pkgdatadir = $(datadir)/program
+pkgincludedir = $(includedir)/program
+pkglibdir = $(libdir)/program
+pkglibexecdir = $(libexecdir)/program
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -209,7 +209,7 @@ CXX = g++
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"main\" -DPACKAGE_TARNAME=\"main\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"main\ 1.0\" -DPACKAGE_BUGREPORT=\"ivannedorizanyuk@gmail.com\" -DPACKAGE_URL=\"\" -DPACKAGE=\"main\" -DVERSION=\"1.0\"
+DEFS = -DPACKAGE_NAME=\"program\" -DPACKAGE_TARNAME=\"program\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"program\ 1.0\" -DPACKAGE_BUGREPORT=\"ivannedorizanyuk@gmail.com\" -DPACKAGE_URL=\"\" -DPACKAGE=\"program\" -DVERSION=\"1.0\"
 DEPDIR = .deps
 ECHO_C = 
 ECHO_N = -n
@@ -230,9 +230,9 @@ MKDIR_P = /usr/bin/mkdir -p
 OBJEXT = o
 PACKAGE = mainprogram
 PACKAGE_BUGREPORT = ivannedorizanyuk@gmail.com
-PACKAGE_NAME = main
-PACKAGE_STRING = main 1.0
-PACKAGE_TARNAME = main
+PACKAGE_NAME = program
+PACKAGE_STRING = program 1.0
+PACKAGE_TARNAME = program
 PACKAGE_URL = 
 PACKAGE_VERSION = 1.0
 PATH_SEPARATOR = :
