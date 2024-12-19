@@ -1,31 +1,22 @@
-name: Automake Build
+name: make build
 
 on:
   push:
-    branches:
-      - branchAutomake
+    branches: [branchMake]
   pull_request:
-    branches:
-      - branchAutomake
+    branches: [branchMake]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y automake autoconf build-essential pkg-config
-
-    - name: Generate configure script
-      run: |
-        chmod +x autogen.sh  # Ensure the script is executable
-        ./autogen.sh  # Run autogen.sh to generate configuration files
-
-    - name: Build tarball
-      run: |
-        ./configure && make dist
+      - uses: actions/checkout@v2
+      - name: Set up C++ Build Environment
+        run: sudo apt update && sudo apt install -y g++
+      - name: Build with Makefile
+        run: |
+          make clean
+          make
+      - name: run all the tests
+        run: ./FuncA
