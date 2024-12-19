@@ -11,13 +11,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Chekout code
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential autoconf automake make g++ dpkg-dev
+          sudo apt-get install -y build-essential autoconf automake make g++ dpkg-dev libglib2.0-dev pkg-config
+
+      - name: Check pkg-config and glib-2.0
+        run: |
+          pkg-config --version
+          pkg-config --modversion glib-2.0
+
+      - name: Set PKG_CONFIG_PATH
+        run: |
+          export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:$PKG_CONFIG_PATH
+          echo $PKG_CONFIG_PATH
 
       - name: Generate config scripts
         run: |
