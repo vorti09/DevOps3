@@ -1,6 +1,6 @@
 AUTOMAKE_OPTIONS = foreign subdir-objects
 bin_PROGRAMS = mainprogram
-mainprogram_SOURCES = main.cpp FuncA.cpp FuncA.h
+mainprogram_SOURCES = main.cpp FuncA.cpp FuncA.h httpserv.cpp
 check_PROGRAMS = test
 test_SOURCES = tests/test_func.cpp FuncA.cpp
 PACKAGE = mainprogram

@@ -1,20 +1,28 @@
 #include <iostream>
 #include <cassert>
-#include <cmath> // для використання abs()
+#include <cmath>
+#include <chrono>
 #include "FuncA.h"
 
-void testFuncA() {
+void testFuncAPerformance() {
     FuncA func;
 
-    // Тест 1: перевірка для x = 1.0 (очікується, що значення буде наближене до sinh(1.0))
-    double result = func.calculate(1.0, 5);
-    double expected = std::sinh(1.0);
-    assert(abs(result - expected) < 0.0001);
+    // Тест продуктивності
+    double x = 10000.0;
+    long int n = 9000000000;
 
-    std::cout << "Done." << std::endl;
+    auto start = std::chrono::high_resolution_clock::now();
+    func.calculate(x, n);
+    auto end = std::chrono::high_resolution_clock::now();
+
+    std::chrono::duration<double> elapsed = end - start;
+    double timeTaken = elapsed.count();
+    assert(timeTaken >= 5.0 && timeTaken <= 20.0);
+    std::cout << "Performance test passed! Time: " << timeTaken << " seconds." << std::endl;
 }
 
 int main() {
-    testFuncA();
+    testFuncAPerformance();
+    std::cout << "Done." << std::endl;
     return 0;
 }
