@@ -4,6 +4,7 @@
 #include <chrono>
 #include "FuncA.h"
 
+
 void testFuncAPerformance() {
     FuncA func;
 
